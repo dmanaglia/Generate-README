@@ -1,33 +1,57 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license){
+  if(license === 'None'){
+    return '';
+  }else {
+    return `![GitHub license](${renderLicenseLink(license)})`
+  }
+}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  switch(license){
+    case 'MIT':
+      return `https://img.shields.io/badge/license-MIT-blue.svg`;
+    case 'APACHE 2.0':
+      return `https://img.shields.io/badge/license-Apache_2.0-blue.svg`;
+    case 'GPL 3.0':
+      return `https://img.shields.io/badge/license-GPL_3.0-blue.svg`;
+    case 'BSD 3':
+      return `https://img.shields.io/badge/license-BSD_3-blue.svg`;
+  }
+}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if(license === 'None'){
+    return `None.`;
+  } else {
+    return `This project is licensed under the ${license} license.`
+  }
+}
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-  
+  ${renderLicenseBadge(data.license)}
+
   ## Description
   
   ${data.description}
   
   ## Table of Contents
     
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits)
-  - [License](#license)
-  - [Contact Me](#contact Me)
+  * [Installation](#installation)
 
+  * [Usage](#usage)
+
+  * [License](#license)
+
+  * [Contributing](#contributing)
+
+  * [Test](#tests)
+
+  * [Questions](#questions)
   
   ## Installation
+
+  To install necessary dependencies, run the following command:
   
   \`\`\`
   ${data.installation}
@@ -37,33 +61,25 @@ function generateMarkdown(data) {
   
   ${data.usage}
 
-  ## Credits
-  
-  
-
   ## License
-  
-  ${data.license}
 
-  ## Badges
-  
-   
+  ${renderLicenseSection(data.license)}
 
-  ## Features
-  
-
-  
-  ## How to Contribute
+  ## Contributing
   
   ${data.contribute}
   
   ## Tests
+
+  To run tests, run the following command:
   
+  \`\`\`
   ${data.test}
+  \`\`\`
 
   ## Questions
-  https://www.github.com/${data.userName}
-  ${data.email}
+
+  If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work at [${data.userName}](https://www.github.com/${data.userName}).
   `
 }
 
