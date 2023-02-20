@@ -5,6 +5,8 @@
   
   A command line program that will ask users a series of questions then generate a quality README based on the users responses
   
+  [Walkthrough Video](https://drive.google.com/file/d/1h37JJ0HXu-VxmD9kf-CqElalY8veonnh/view)
+  
   ## Table of Contents
     
   * [Installation](#installation)
